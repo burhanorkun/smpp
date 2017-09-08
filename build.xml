@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="com.adenon.api.smpp">
+    <property environment="env"/>
+    <property name="com.adenon.bulk.common.location" value="../com.adenon.bulk.common"/>
+    <property name="com.adenon.bulk.core.location" value="../com.adenon.bulk.core"/>
+    <property name="com.adenon.bulk.web.location" value="../com.adenon.bulk.web"/>
+    <property name="com.adenon.kibris.core.location" value="../com.adenon.kibris.core"/>
+    <property name="com.adenon.kibris.web.location" value="../com.adenon.kibris.web"/>
+    <property name="com.adenon.test.smpp.location" value="../com.adenon.test.smpp"/>
+    <property name="ECLIPSE_HOME" value="../../../../usr/local/eclipse"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="com.adenon.api.smpp.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="resources/lib/log4j-1.2.17.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.testsuite"/>
+                <exclude name="**/*.deploy"/>
+                <exclude name="**/*.location"/>
+                <exclude name="**/*.execution"/>
+                <exclude name="**/*.datapool"/>
+                <exclude name="**/*.artifact"/>
+                <exclude name="**/*.html"/>
+                <exclude name="**/*.svg"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="com.adenon.api.smpp.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
+        <ant antfile="build.xml" dir="${com.adenon.bulk.common.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${com.adenon.bulk.common.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${com.adenon.bulk.core.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${com.adenon.bulk.core.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${com.adenon.bulk.web.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${com.adenon.bulk.web.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${com.adenon.kibris.core.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${com.adenon.kibris.core.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${com.adenon.kibris.web.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${com.adenon.kibris.web.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${com.adenon.test.smpp.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${com.adenon.test.smpp.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+    </target>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+</project>

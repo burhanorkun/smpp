@@ -1,0 +1,24 @@
+|1        |2014-05-28 06:22:36,385 [Thread-1            ] ERROR - [MessagingManager<sendSms>] (T:166) [Adenon:con1]  : Error : 163
+java.lang.ArrayIndexOutOfBoundsException: 163
+	at java.util.ArrayList.add(Unknown Source)
+	at com.adenon.api.smpp.core.SmppIOReactor.sendSubmitSM(SmppIOReactor.java:542)
+	at com.adenon.api.smpp.sdk.SmppMessagingManager.sendSms(SmppMessagingManager.java:333)
+	at com.adenon.api.smpp.sdk.SmppMessagingManager.sendSms(SmppMessagingManager.java:260)
+	at com.adenon.api.smpp.SmppMessagingApi.sendSms(SmppMessagingApi.java:50)
+	at com.adenon.api.smpp.sample.ApiSampleSMSSendThread.run(ApiSampleSMSSendThread.java:38)
+|3        |2017-09-07 23:05:43,585 [Thread-2            ] ERROR - [MessagingManager<sendSms>] (T:50) [Adenon:con1]  : Error : 49
+java.lang.ArrayIndexOutOfBoundsException: 49
+	at java.util.ArrayList.add(Unknown Source)
+	at com.adenon.api.smpp.core.SmppIOReactor.sendSubmitSM(SmppIOReactor.java:542)
+	at com.adenon.api.smpp.sdk.SmppMessagingManager.sendSms(SmppMessagingManager.java:333)
+	at com.adenon.api.smpp.sdk.SmppMessagingManager.sendSms(SmppMessagingManager.java:260)
+	at com.adenon.api.smpp.SmppMessagingApi.sendSms(SmppMessagingApi.java:50)
+	at com.adenon.api.smpp.sample.ApiSampleSMSSendThread.run(ApiSampleSMSSendThread.java:38)
+|1        |2017-09-08 11:05:21,112 [Thread-2            ] ERROR - [MessagingManager<sendSms>] (T:11) [Adenon:con1]  : Error : 10
+java.lang.ArrayIndexOutOfBoundsException: 10
+	at java.util.ArrayList.add(ArrayList.java:459)
+	at com.adenon.api.smpp.core.SmppIOReactor.sendSubmitSM(SmppIOReactor.java:542)
+	at com.adenon.api.smpp.sdk.SmppMessagingManager.sendSms(SmppMessagingManager.java:333)
+	at com.adenon.api.smpp.sdk.SmppMessagingManager.sendSms(SmppMessagingManager.java:260)
+	at com.adenon.api.smpp.SmppMessagingApi.sendSms(SmppMessagingApi.java:50)
+	at com.adenon.api.smpp.sample.ApiSampleSMSSendThread.run(ApiSampleSMSSendThread.java:38)

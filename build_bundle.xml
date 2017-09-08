@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="com.adenon.api.smpp" default="debug-bundle" basedir=".">
+	<property name="master.dir" value=".." />
+	<property name="version" value="v1.1" />
+	<property name="destination" value="${basedir}" />
+
+	<import file="../com.adenon.build/build_runtime.xml" />
+	<import file="../com.adenon.build/build_classpath.xml" />
+
+	<target name="init-bundle">
+
+		<!-- *****///// CHANGE HERE \\\\\***** -->
+		<property name="jar.name" value="adenon-api-smpp" />
+		<path id="plugin.classpath">
+			<!-- *****///// CHANGE HERE \\\\\***** -->
+			<path refid="classpath.general" />
+			<path refid="classpath.com.adenon.api.smpp" />
+		</path>
+		<property name="bundle.classpath" refid="plugin.classpath" />
+		<!-- *****///// CHANGE HERE \\\\\***** -->
+		<pathconvert property="file.includes" pathsep=",">
+			<path>
+				<fileset dir="${basedir}" id="bundle.resources">
+					<include name="META-INF/" />
+				</fileset>
+			</path>
+		</pathconvert>
+		<!-- *****///// CHANGE HERE \\\\\***** -->
+		<pathconvert property="project.files" pathsep=",">
+			<path>
+				<fileset dir="${basedir}" id="bundle.resources">
+					<include name="resources/lib/" />
+				</fileset>
+			</path>
+		</pathconvert>
+	</target>
+
+	<target name="build-subprojects">
+	</target>
+</project>
